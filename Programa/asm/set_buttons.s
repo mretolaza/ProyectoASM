@@ -20,11 +20,11 @@ push {lr}
     bl GetGpioAddress
 
     @ Configurar GPIO's para lectura de botones frontales
-    mov r0, #4        @ GPIO 1 (Boton 1; Minutos)
+    mov r0, #4        @ GPIO 1 (Boton 1; Segundos)
     mov r1, #0          @ Read
     bl SetGpioFunction
 
-    mov r0, #17         @ GPIO 2 (Boton 2; Segundos)
+    mov r0, #17         @ GPIO 2 (Boton 2; Aumento en forma circular )
     mov r1, #0          @ Read
     bl SetGpioFunction
 
