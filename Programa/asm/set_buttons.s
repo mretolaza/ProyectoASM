@@ -36,25 +36,6 @@ push {lr}
     bl SetGpioFunction
 
     @ Configurar GPIO's para escritura de los LED's
-    mov r0, #5          @ GPIO: Led mas alto 6 
-    mov r1, #1          @ Write
-    bl SetGpioFunction
-
-    mov r0, #6          @ GPIO Led 5 
-    mov r1, #1          @ Write
-    bl SetGpioFunction
-
-    mov r0, #13         @ GPIO Led 4 
-    mov r1, #1          @ Write
-    bl SetGpioFunction
-
-    mov r0, #19         @ GPIO Led 3 
-    mov r1, #1          @ Write
-    bl SetGpioFunction
-
-    mov r0, #26         @ GPIO Led 2 
-    mov r1, #1          @ Write
-    bl SetGpioFunction
 
     mov r0, #21         @ GPIO Led 1 
     mov r1, #1          @ Write
@@ -62,26 +43,7 @@ push {lr}
 
 
     @ Colocar todos los LED's en apagado
-        mov r0, #5          @ GPIO: Led mas alto 6
-        mov r1, #0          
-        bl SetGpio
-
-        mov r0, #6          @ GPIO Led 5
-        mov r1, #0          
-        bl SetGpio
-
-        mov r0, #13         @ GPIO Led 4
-        mov r1, #0          
-        bl SetGpio
-
-        mov r0, #19         @ GPIO Led 3
-        mov r1, #0          
-        bl SetGpio
-
-        mov r0, #26         @ GPIO 2
-        mov r1, #0          @ Off
-        bl SetGpio
-
+      
         mov r0, #21         @ GPIO 1
         mov r1, #0          @ Off
         bl SetGpio
