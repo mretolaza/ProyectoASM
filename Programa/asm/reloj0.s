@@ -6,54 +6,7 @@
  .align 2
  .global main
 main:
-	@utilizando la biblioteca GPIO (gpio0_2.s)
-	bl GetGpioAddress @solo se llama una vez
 	
-	/* Display Derecho */
-	@GPIO para escritura (salida) puerto 12 
-	@|..|...|*.|
-	mov r0,#12
-	mov r1,#1
-	bl SetGpioFunction
-	
-	@GPIO para escritura (salida) puerto 16
-	@|..|*..|..|
-	mov r0,#16
-	mov r1,#1
-	bl SetGpioFunction
-
-	@GPIO para lectura (salida) puerto 20 
-	@|*.|...|..|
-	mov r0,#20
-	mov r1,#1
-	bl SetGpioFunction
-	
-	@GPIO para lectura (salida) puerto 21 
-	@|..|.*.|..|
-	mov r0,#21
-	mov r1,#1
-	bl SetGpioFunction
-	
-	@GPIO para lectura (salida) puerto 14 
-	@|..|...|.*|
-	mov r0,#14
-	mov r1,#1
-	bl SetGpioFunction
-	
-	@GPIO para escritura (salida) puerto 15
-	@|..|..*|..|
-	mov r0,#15
-	mov r1,#1
-	bl SetGpioFunction
-	
-	@GPIO para escritura (salida) puerto 18
-	@|.*|...|..|
-	mov r0,#18
-	mov r1,#1
-	bl SetGpioFunction
-	
-	bl loop1
-
 loop1:
 	/* cero */
 	cmp r7, #0
