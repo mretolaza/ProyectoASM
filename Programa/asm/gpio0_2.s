@@ -127,3 +127,35 @@ SetGpio:
 	.unreq setBit
 	.unreq gpioAddr
 	pop {pc}
+
+
+@ Funcion que revisa la direccion 0x3F200034 para verificar el estado del pin
+@ Parametros:
+@	- r0: Pin a revisar
+@ Retorno:
+@	- r0: 1: Estado alto; 0: Estado bajo
+@ Uso de registros:
+@	- r5: Cargar valor de estado de pin
+@	- r6: Cargar direccion Gpio
+@	- r7: Numero para obtener el valor del bit 14
+@	- r8: Guardar valor de pin
+.global GetGpio
+ GetGpio:
+ 	push {lr}
+ 	push {r5-r8} 		@ Guardar restros a usar
+ 	mov r8, r0 			@ Guardar pin
+
+	ldr r6, =myloc  	@ Obtener direccion de memoria Gpio
+ 	ldr r0, [r6] 		@ Cargar la direccion
+	ldr r5, [r0,#0x34] 	@ Cargar a r5 el valor del bit del pin a revisar
+
+	mov r7, #1
+	lsl r7, r8 	 			@ Correrse para comparar con bit correcto
+	and r5, r5, r7 			@ Realizar and
+	cmp r5, #0 				@ Verificar resultado
+	moveq r0, #0 			@ Si esta apagado, mover 0
+	movgt r0, #1 			@ Si esta encendido, mover 1
+
+	pop {r5-r8}
+	pop {pc}
+
