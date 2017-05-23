@@ -36,7 +36,7 @@ push {lr}
     bl SetGpioFunction
 
     @ Configurar GPIO's para escritura de los LED's
-    mov r0, #5          @ GPIO: Led mas alto 6 (Cable verde)
+    mov r0, #5          @ GPIO: Led mas alto 6 
     mov r1, #1          @ Write
     bl SetGpioFunction
 
