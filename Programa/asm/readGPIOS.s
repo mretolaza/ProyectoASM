@@ -16,7 +16,7 @@
 @ Parametros:
 @   - Nulo
 @ Retorna:
-@   - r0: 0: Si no se apacho ninguno; 1: Si se apacho boton 1 (17); 2: si fue el boton 2 (27); 3: si fue el boton 3 (22)
+@   - r0: 0: Si no se apacho ninguno; 1: Si se apacho boton 1 (4); 2: si fue el boton 2 (17); 3: si fue el boton 3 (27)
 @ Uso de registros:
 @   - r2: Resultado
 .global readGPIOs
@@ -74,7 +74,6 @@ LucesLedAleatorias:
 
         ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
         bl delay
-
 
 
 @ Subrutina que realiza una division entre 2 numeros (A/B)
