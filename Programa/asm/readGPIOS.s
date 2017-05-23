@@ -24,28 +24,22 @@ readGPIOs:
     push {lr}
         mov r2, #0          @ Limpiar registro 
 
-        mov r0, #17         @ Revisar boton 1
+        mov r0, #4         @ Revisar boton 1
         bl GetGpio          @ Devuelve en r0: 1, apachado; 0, libre
         cmp r0, #1          @ Asignar resultado
         moveq r2, #1
         bleq ReturnReadGpio     @ Finalizar funcion
 
-        mov r0, #27         @ Revisar boton 2
+        mov r0, #17         @ Revisar boton 2
         bl GetGpio          @ Devuelve en r0: 1, apachado; 0, libre
         cmp r0, #1
         moveq r2, #2        @ Asignar resultado
         bleq ReturnReadGpio     @ Finalizar funcion
 
-        mov r0, #22         @ Revisar boton 3
+        mov r0, #27         @ Revisar boton 3
         bl GetGpio          @ Devuelve en r0: 1, apachado; 0, libre
         cmp r0, #1
         moveq r2, #3        @ Asignar resultado
-        bleq ReturnReadGpio     @ Finalizar funcion
-
-        mov r0, #23         @ Revisar boton 4
-        bl GetGpio          @ Devuelve en r0: 1, apachado; 0, libre
-        cmp r0, #1
-        moveq r2, #4        @ Asignar resultado
         bleq ReturnReadGpio     @ Finalizar funcion
 
         mov r2, #0          @ Retornar 0 si no se ha apachado ninguno.
@@ -53,6 +47,7 @@ readGPIOs:
         ReturnReadGpio:
         mov r0, r2          @ Retornar correctamente el resultado 
         pop {pc}
+
 
 
 @ Subrutina que enciende y apaga luces
@@ -66,105 +61,19 @@ readGPIOs:
 .global LucesLedAleatorias
 LucesLedAleatorias:
     push {lr}
-        mov r0, #5 
+        mov r0, #22 
         mov r1, #1            @ Encender
         bl SetGpio
 
         ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
         bl delay
 
-        mov r0, #5 
+        mov r0, #22
         mov r1, #0            @ Apagar
         bl SetGpio
 
         ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
         bl delay
-
-        mov r0, #6 
-        mov r1, #1            @ Encender
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #6 
-        mov r1, #0            @ Apagar
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #13 
-        mov r1, #1            @ Encender
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #5 
-        mov r1, #1            @ Encender
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #13 
-        mov r1, #0            @ Apagar
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #19 
-        mov r1, #1            @ Encender
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #19 
-        mov r1, #0            @ Apagar
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #26 
-        mov r1, #1            @ Encender
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #5 
-        mov r1, #0            @ Encender
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #26 
-        mov r1, #0            @ Apagar
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #21 
-        mov r1, #1            @ Encender
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        mov r0, #21 
-        mov r1, #0            @ Apagar
-        bl SetGpio
-
-        ldr r0, =0x64       @ Esperar 1/2 de segundo entre cada ciclo
-        bl delay
-
-        pop {pc}
 
 
 
