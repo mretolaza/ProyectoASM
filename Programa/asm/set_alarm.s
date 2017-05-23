@@ -7,7 +7,7 @@
 @ Build:
 @ -----------------------------------
 
-
+nada de esto esta probado 
 @ Subrutina que fija la hora a la que sonara la alarma
 @ Parametros:
 @   - Ninguno
