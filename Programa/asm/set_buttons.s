@@ -19,19 +19,15 @@ push {lr}
     bl GetGpioAddress
 
     @ Configurar GPIO's para lectura de botones frontales
-    mov r0, #17         @ GPIO 1
+    mov r0, #17         @ GPIO 1 (Boton 1)
     mov r1, #0          @ Read
     bl SetGpioFunction
 
-    mov r0, #27         @ GPIO 2
+    mov r0, #27         @ GPIO 2 (Boton 2)
     mov r1, #0          @ Read
     bl SetGpioFunction
 
-    mov r0, #22         @ GPIO 3
-    mov r1, #0          @ Read
-    bl SetGpioFunction
-
-    mov r0, #23         @ GPIO 4
+    mov r0, #22         @ GPIO 3 (Boton 3)
     mov r1, #0          @ Read
     bl SetGpioFunction
 
@@ -48,9 +44,7 @@ push {lr}
         mov r1, #0          @ Off
         bl SetGpio
 
-    pop {pc}
-
-    
+    pop {pc}   
 
 .data
   

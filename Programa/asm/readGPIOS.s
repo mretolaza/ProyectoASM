@@ -10,6 +10,7 @@
 @ Los requisitos para que esto se cumpla es establecer los GpioS para el funcionamiento previo 
 @ -----------------------------------
 
+
 @ Subrutina que revisa si algún boton se encuentra apachado.
 @ Requisito: Ya se deben de haber establecido los GPIOS como de lectura para utilizar esta funcion.
 @ Parametros:
